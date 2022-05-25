@@ -22,5 +22,10 @@ class EntrySerializer(serializers.Serializer):
     
     def update(self, instance, validated_data):
         #Voy a modificar instancia con validated data
-        pass
+        instance.datetime = validated_data.get("datetime")    
+        instance.concept = validated_data.get("concept")    
+        instance.amount = validated_data.get("amount")   
+
+        instance.save()    
+        return instance
     
